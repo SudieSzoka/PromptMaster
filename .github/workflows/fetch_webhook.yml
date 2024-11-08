@@ -20,9 +20,11 @@ jobs:
           python-version: '3.9'
 
       - name: Run Fetch Data Script
+        env:
+          CLIENT_PAYLOAD: ${{ toJson(github.event.client_payload) }}
         run: |
-          printf '%s\n' '${{ toJSON(github.event.client_payload) }}' > payload.json
-          cat payload.json | python scripts/fetch_data.py
+          echo "$CLIENT_PAYLOAD" > payload.json
+          python scripts/fetch_data.py payload.json
           rm payload.json
 
       - name: Commit and Push Changes

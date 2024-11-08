@@ -42,9 +42,11 @@ def main():
     except Exception as e:
         print(f"An error occurred: {e}")
     # 遍历data目录下的所有json文件，写入到datalist.json中
+    script_dir = os.path.dirname(os.path.abspath(__file__))
     json_files = [f for f in os.listdir(data_dir) if f.endswith('.json')]
-    with open('datalist.json', 'w') as f:
-        json.dump(json_files, f)
+    datalist_path = os.path.join(script_dir, 'datalist.json')
+    with open(datalist_path, 'w', encoding='utf-8') as f:
+        json.dump(json_files, f, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
     main()

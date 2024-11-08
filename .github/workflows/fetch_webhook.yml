@@ -21,7 +21,9 @@ jobs:
 
       - name: Run Fetch Data Script
         run: |
-          python scripts/fetch_data.py '${{ toJSON(github.event.client_payload) }}'
+          echo '${{ toJSON(github.event.client_payload) }}' > payload.json
+          python scripts/fetch_data.py "$(cat payload.json)"
+          rm payload.json  # 删除临时文件
 
       - name: Commit and Push Changes
         run: |

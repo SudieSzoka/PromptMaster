@@ -42,7 +42,6 @@ def main():
     except Exception as e:
         print(f"An error occurred: {e}")
     # 遍历data目录下的所有json文件，写入到datalist.json中
-    data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data')
     json_files = [f for f in os.listdir(data_dir) if f.endswith('.json')]
     with open('datalist.json', 'w') as f:
         json.dump(json_files, f)

@@ -22,8 +22,15 @@ def main():
         else:
             data_list = []
 
-        data = {"vision": vision, "content": content, "time": time}
-        data_list.insert(0, data)
+        # 检查是否存在相同 vision
+        for item in data_list:
+            if item.get("vision") == vision:
+                item["content"] = content
+                item["time"] = time
+                break
+        else:
+            data = {"vision": vision, "content": content, "time": time}
+            data_list.insert(0, data)
 
         with open(file, 'w', encoding='utf-8') as f:
             json.dump(data_list, f, ensure_ascii=False, indent=4)

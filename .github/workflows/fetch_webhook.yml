@@ -21,7 +21,7 @@ jobs:
 
       - name: Run Fetch Data Script
         run: |
-          echo '${{ toJSON(github.event.client_payload) }}' > payload.json
+          printf '%s\n' '${{ toJSON(github.event.client_payload) }}' > payload.json
           cat payload.json | python scripts/fetch_data.py
           rm payload.json
 

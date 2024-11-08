@@ -3,10 +3,6 @@ import sys
 import json
 
 def main():
-    if len(sys.argv) < 2:
-        print("No data provided.")
-        return
-
     try:
         payload = json.load(sys.stdin)
         # 确保 users 是列表格式
@@ -26,7 +22,7 @@ def main():
         else:
             data_list = []
 
-        data = {"vision":vision,"content":content,"time":time}
+        data = {"vision": vision, "content": content, "time": time}
         data_list.insert(0, data)
 
         with open(file, 'w', encoding='utf-8') as f:

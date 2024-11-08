@@ -23,9 +23,7 @@ jobs:
         env:
           CLIENT_PAYLOAD: ${{ toJson(github.event.client_payload) }}
         run: |
-          echo "$CLIENT_PAYLOAD" > payload.json
-          python scripts/fetch_data.py payload.json
-          rm payload.json
+          echo "$CLIENT_PAYLOAD" | python scripts/fetch_data.py
 
       - name: Commit and Push Changes
         run: |

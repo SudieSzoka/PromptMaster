@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单查询系统</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>订单查询系统</h1>
+        <div class="search-box">
+            <input type="text" id="username" placeholder="请输入用户名" required>
+            <button onclick="searchOrders()">查询</button>
+        </div>
+        <div id="result" class="result-container"></div>
+        <div id="error-message" class="error-message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

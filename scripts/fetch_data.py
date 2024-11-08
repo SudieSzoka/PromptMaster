@@ -8,7 +8,7 @@ def main():
         return
 
     try:
-        payload = json.loads(sys.argv[1])
+        payload = json.load(sys.stdin)
         # 确保 users 是列表格式
         name = payload.get("name")
         content = payload.get("content")
